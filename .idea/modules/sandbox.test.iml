@@ -10,5 +10,4 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="sandbox.main" />
   </component>
-  <component name="TestModuleProperties" production-module="sandbox.main" />
 </module>
