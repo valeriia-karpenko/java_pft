@@ -2,7 +2,6 @@ package ru.stqa.ptf.addressbook;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
@@ -18,21 +17,17 @@ public class GroupCreationTests {
   public void setUp() throws Exception {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
-
-  @Test
-  public void testGroupCreation() throws Exception {
     wd.get("http://localhost/addressbook/");
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).click();
-    // ERROR: Caught exception [ERROR: Unsupported command [doubleClick | name=user | ]]
     wd.findElement(By.name("user")).click();
     wd.findElement(By.name("user")).clear();
     wd.findElement(By.name("user")).sendKeys("admin");
     wd.findElement(By.name("pass")).clear();
     wd.findElement(By.name("pass")).sendKeys("secret");
     wd.findElement(By.xpath("//input[@value='Login']")).click();
-    wd.findElement(By.id("nav")).click();
+  }
+
+  @Test
+  public void testGroupCreation() {
     wd.findElement(By.linkText("groups")).click();
     wd.findElement(By.name("new")).click();
     wd.findElement(By.name("group_name")).click();
@@ -48,18 +43,7 @@ public class GroupCreationTests {
   }
 
   @AfterMethod(alwaysRun = true)
-  public void tearDown() throws Exception {
-    wd.quit();
-  }
-
-  private boolean isElementPresent(By by) {
-    try {
-      wd.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
+  public void tearDown() { wd.quit();  }
 
   private boolean isAlertPresent() {
     try {
