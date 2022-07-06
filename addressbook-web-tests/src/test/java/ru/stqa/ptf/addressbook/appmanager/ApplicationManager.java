@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
   WebDriver wd;
-
+  private ContactHelper contactHelper;
   private SessionHelper sessionHelper;
 
   private NavigationHelper navigationHelper;
@@ -19,6 +19,7 @@ public class ApplicationManager {
     // login
     wd.get("http://localhost/addressbook/group.php");
     groupHelper = new GroupHelper(wd);
+    contactHelper = new ContactHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
     sessionHelper.login("admin", "secret");
@@ -34,5 +35,9 @@ public class ApplicationManager {
 
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
+  }
+
+  public ContactHelper getContactHelper() {
+    return contactHelper;
   }
 }
