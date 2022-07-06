@@ -1,5 +1,6 @@
 package ru.stqa.ptf.addressbook.appmanager;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
@@ -28,5 +29,10 @@ public class HelperBase {
     } catch (NoAlertPresentException e) {
       return false;
     }
+  }
+
+  public void closeAlertAndGetItsText() {
+    Alert alert = wd.switchTo().alert();
+    alert.accept();
   }
 }
