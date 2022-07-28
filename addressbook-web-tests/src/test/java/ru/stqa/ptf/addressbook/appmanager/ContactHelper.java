@@ -56,7 +56,7 @@ public class ContactHelper extends HelperBase{
     return isElementPresent(By.name("selected[]"));
   }
 
-  public void createContact(ContactData contact, boolean b) {
+  public void createContact(ContactData contact) {
     initNewContactPage();
     fillContactForm(contact, true);
     submitContactCreation();
