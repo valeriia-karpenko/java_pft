@@ -30,7 +30,7 @@ public class ContactHelper extends HelperBase{
     type(By.name("email"), contactData.getEmail());
 
     if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByIndex(0);
+      new Select(wd.findElement(By.name("new_group"))).selectByIndex(1);
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -52,6 +52,9 @@ public class ContactHelper extends HelperBase{
     click(By.name("update"));
   }
 
+  public void returnToHomePage() { click(By.linkText("home page"));
+  }
+
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
@@ -60,5 +63,6 @@ public class ContactHelper extends HelperBase{
     initNewContactPage();
     fillContactForm(contact, true);
     submitContactCreation();
+    returnToHomePage();
   }
 }
