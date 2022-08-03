@@ -12,15 +12,16 @@ import java.util.List;
 
 public class ContactCreationTest  extends TestBase {
 
-  @Test (enabled = false)
+  @Test
   public void testContactCreation() {
     app.getNavigationHelper().gotoGroupPage();
     if (! app.getGroupHelper().isThereAGroup()) {
       app.getGroupHelper().createGroup(new GroupData("test1", null, null));
     }
+    app.getNavigationHelper().goToHomePage();
     List<ContactData> before = app.getContactHelper().getContactList();
     app.getContactHelper().initNewContactPage();
-    ContactData contact = new ContactData(before.get(before.size() - 1).getId(),"Peter", null,
+    ContactData contact = new ContactData("Peter", null,
             "Romanov", null, null, null, null);
     app.getContactHelper().fillContactForm((contact), true);
     app.getContactHelper().submitContactCreation();
