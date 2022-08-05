@@ -52,10 +52,21 @@ public class ContactHelper extends HelperBase{
     click(By.xpath("//input[@value='Delete']"));
   }
 
-  public void initContactModification(int id) {
+  public void initContactModificationById(int id) {
 //    click(By.xpath("//img[@alt='Edit']"));
     wd.findElement(By.xpath("//a[@href='edit.php?id=" + id + "'" + "]")).click();
 
+  }
+  public ContactData infoFromEditForm(ContactData contact) {
+    initContactModificationById(contact.getId());
+    String name = wd.findElement(By.name("firstname")).getAttribute("value");
+    String last_name = wd.findElement(By.name("lastname")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+    String work = wd.findElement(By.name("work")).getAttribute("value");
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId()).withName(name).withLast_name(last_name)
+            .withHome(home).withMobile(mobile).withWork(work);
   }
 
   public void updateContactModification() {
@@ -78,7 +89,7 @@ public class ContactHelper extends HelperBase{
 
   public void modify(ContactData contact) {
     selectContactbyId(contact.getId());
-    initContactModification(contact.getId());
+    initContactModificationById(contact.getId());
     fillContactForm(contact, false);
     updateContactModification();
     returnToHomePage();
