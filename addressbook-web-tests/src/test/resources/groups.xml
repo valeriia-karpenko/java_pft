@@ -1,0 +1,14 @@
+<list>
+  <group>
+    <name>test 0</name>
+    <header>header 0</header>
+  </group>
+  <group>
+    <name>test 1</name>
+    <header>header 1</header>
+  </group>
+  <group>
+    <name>test 2</name>
+    <header>header 2</header>
+  </group>
+</list>
