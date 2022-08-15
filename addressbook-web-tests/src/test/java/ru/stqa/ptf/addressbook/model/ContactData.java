@@ -136,7 +136,7 @@ public class ContactData {
   }
 
   public ContactData withPhone2(String phone2) {
-    this.work = work;
+    this.phone2 = phone2;
     return this;
   }
 
