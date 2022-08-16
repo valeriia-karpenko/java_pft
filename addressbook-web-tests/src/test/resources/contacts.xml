@@ -1,0 +1,29 @@
+<list>
+  <contact>
+    <name>Sonya 0</name>
+    <last__name>Ivanova 0</last__name>
+    <address>Nevskiy 0</address>
+    <mobile>812563950</mobile>
+    <home>812563950</home>
+    <work>812563950</work>
+    <email1>test0@mail.ru</email1>
+  </contact>
+  <contact>
+    <name>Sonya 1</name>
+    <last__name>Ivanova 1</last__name>
+    <address>Nevskiy 1</address>
+    <mobile>812563951</mobile>
+    <home>812563951</home>
+    <work>812563951</work>
+    <email1>test1@mail.ru</email1>
+  </contact>
+  <contact>
+    <name>Sonya 2</name>
+    <last__name>Ivanova 2</last__name>
+    <address>Nevskiy 2</address>
+    <mobile>812563952</mobile>
+    <home>812563952</home>
+    <work>812563952</work>
+    <email1>test2@mail.ru</email1>
+  </contact>
+</list>

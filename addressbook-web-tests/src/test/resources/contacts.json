@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Sonya 0",
+    "last_name": "Ivanova 0",
+    "address": "Nevskiy 0",
+    "mobile": "812563950",
+    "home": "812563950",
+    "work": "812563950",
+    "email1": "test0@mail.ru"
+  },
+  {
+    "name": "Sonya 1",
+    "last_name": "Ivanova 1",
+    "address": "Nevskiy 1",
+    "mobile": "812563951",
+    "home": "812563951",
+    "work": "812563951",
+    "email1": "test1@mail.ru"
+  },
+  {
+    "name": "Sonya 2",
+    "last_name": "Ivanova 2",
+    "address": "Nevskiy 2",
+    "mobile": "812563952",
+    "home": "812563952",
+    "work": "812563952",
+    "email1": "test2@mail.ru"
+  }
+]

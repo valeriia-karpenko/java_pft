@@ -18,16 +18,18 @@ public class ContactData {
   private String nickname;
   @Expose
   private String address;
+  @Expose
   private String mobile;
+  @Expose
   private String home;
+  @Expose
   private String work;
   private String phone2;
+  @Expose
   private String email1;
   private String email2;
   private String email3;
-  @Expose
   private String allEmail;
-  @Expose
   private String allPhones;
   private File photo;
 
