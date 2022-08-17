@@ -26,6 +26,9 @@ public class ApplicationManager {
     this.browser = browser;
     properties = new Properties();
   }
+  public String getProperty(String key) {
+    return properties.getProperty(key);
+  }
 
   public void init() throws IOException {
     String target = System.getProperty("target", "local");
@@ -40,12 +43,12 @@ public class ApplicationManager {
     }
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     // login
-    wd.get(properties.getProperty("web.baseUrl"));
+    wd.get(getProperty("web.baseUrl"));
     groupHelper = new GroupHelper(wd);
     contactHelper = new ContactHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
-    sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
+    sessionHelper.login(getProperty("web.adminLogin"), getProperty("web.adminPassword"));
   }
 
   public void stop() {
