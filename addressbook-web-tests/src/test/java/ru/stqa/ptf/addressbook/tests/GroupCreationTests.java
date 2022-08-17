@@ -14,6 +14,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -21,9 +22,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationTests extends TestBase {
 
+  private Properties properties;
+
   @DataProvider
   public Iterator<Object[]> validGroupsFromXml() throws IOException {
-    try (BufferedReader reader = new BufferedReader(new FileReader("src/test/resources/groups.xml"))) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(properties.getProperty("data.groupsXml")))) {
       String xml = "";
       String line = reader.readLine();
       while (line != null) {
@@ -39,7 +42,7 @@ public class GroupCreationTests extends TestBase {
 
   @DataProvider
   public Iterator<Object[]> validGroupsFromJson() throws IOException {
-    try (BufferedReader reader = new BufferedReader(new FileReader("src/test/resources/groups.json"))) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(properties.getProperty("data.groupsJson")))) {
       String json = "";
       String line = reader.readLine();
       while (line != null) {
