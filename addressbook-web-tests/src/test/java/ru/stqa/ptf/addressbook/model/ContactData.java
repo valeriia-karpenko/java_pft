@@ -1,47 +1,87 @@
 package ru.stqa.ptf.addressbook.model;
 
 import com.google.gson.annotations.Expose;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 
-@XStreamAlias("contact")
+//@XStreamAlias("contact")
+@Entity
+@Table(name="addressbook")
 public class ContactData {
-  @XStreamOmitField
+
+//  @XStreamOmitField
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
-  @Expose
+
+//  @Expose
+  @Column(name = "firstname")
   private String name;
+
+  @Column(name = "middlename")
   private String middle_name;
-  @Expose
+
+//  @Expose
+  @Column(name = "lastname")
   private String last_name;
+
   private String nickname;
-  @Expose
+
+//  @Expose
+  @Column(name = "address")
+  @Type(type = "text")
   private String address;
   @Expose
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String mobile;
-  @Expose
+
+//  @Expose
+  @Column(name = "home")
+  @Type(type = "text")
   private String home;
-  @Expose
+
+//  @Expose
+  @Column(name = "work")
+  @Type(type = "text")
   private String work;
+
+  @Type(type = "text")
   private String phone2;
-  @Expose
+
+//  @Expose
+  @Column(name = "email")
+  @Type(type = "text")
   private String email1;
+
+  @Type(type = "text")
   private String email2;
+
+  @Type(type = "text")
   private String email3;
+
+  @Transient
   private String allEmail;
+
+  @Transient
   private String allPhones;
-  private File photo;
+
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
-//  private String group;
+  @Transient
+  private String group;
 
   public int getId() { return id; }
 
@@ -204,5 +244,4 @@ public class ContactData {
             ", last_name='" + last_name + '\'' +
             '}';
   }
-
 }
