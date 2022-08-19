@@ -31,7 +31,6 @@ public class HbConnectionTest {
       // so destroy it manually.
       StandardServiceRegistryBuilder.destroy( registry );
     }
-
   }
 
   @Test

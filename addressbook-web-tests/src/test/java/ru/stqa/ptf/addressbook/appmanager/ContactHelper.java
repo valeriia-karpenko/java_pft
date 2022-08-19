@@ -113,7 +113,7 @@ public class ContactHelper extends HelperBase{
   }
 
   public Contacts all() {
-    Contacts contacts = new Contacts();
+    Contacts contacts = new Contacts(result);
     List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
       List<WebElement> cells = element.findElements(By.tagName("td"));
