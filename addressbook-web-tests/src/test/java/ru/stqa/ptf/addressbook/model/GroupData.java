@@ -64,14 +64,6 @@ public class GroupData {
   }
 
   @Override
-  public String toString() {
-    return "GroupData{" +
-            "id='" + id + '\'' +
-            ", name='" + name + '\'' +
-            '}';
-  }
-
-  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -92,4 +84,13 @@ public class GroupData {
     result = 31 * result + (footer != null ? footer.hashCode() : 0);
     return result;
   }
+
+  @Override
+  public String toString() {
+    return "GroupData{" +
+            "id='" + id + '\'' +
+            ", name='" + name + '\'' +
+            '}';
+  }
+
 }

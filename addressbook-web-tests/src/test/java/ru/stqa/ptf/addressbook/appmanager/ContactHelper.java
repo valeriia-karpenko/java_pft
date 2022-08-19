@@ -60,7 +60,6 @@ public class ContactHelper extends HelperBase{
   public void initContactModificationById(int id) {
 //    click(By.xpath("//img[@alt='Edit']"));
     wd.findElement(By.xpath("//a[@href='edit.php?id=" + id + "'" + "]")).click();
-
   }
   public ContactData infoFromEditForm(ContactData contact) {
     initContactModificationById(contact.getId());
@@ -103,6 +102,7 @@ public class ContactHelper extends HelperBase{
     initContactModificationById(contact.getId());
     fillContactForm(contact, false);
     updateContactModification();
+    contactCache = null;
     returnToHomePage();
   }
 
@@ -110,10 +110,15 @@ public class ContactHelper extends HelperBase{
     selectContactbyId(deletedContact.getId());
     deleteSelectedContacts();
     closeAlertAndGetItsText();
+    contactCache = null;
   }
+  public Contacts contactCache = null;
 
   public Contacts all() {
-    Contacts contacts = new Contacts(result);
+    if (contactCache != null) {
+      return new Contacts();
+    }
+    contactCache = new Contacts();
     List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
       List<WebElement> cells = element.findElements(By.tagName("td"));
@@ -123,9 +128,9 @@ public class ContactHelper extends HelperBase{
       String allPhones = cells.get(5).getText();
       String address = cells.get(3).getText();
       String allEmail = cells.get(4).getText();
-      contacts.add(new ContactData().withId(id).withName(name).withLast_name(last_name)
+      contactCache.add(new ContactData().withId(id).withName(name).withLast_name(last_name)
               .withAllPhones(allPhones).withAddress(address).withAllEmail(allEmail));
     }
-    return contacts;
+    return contactCache;
   }
 }

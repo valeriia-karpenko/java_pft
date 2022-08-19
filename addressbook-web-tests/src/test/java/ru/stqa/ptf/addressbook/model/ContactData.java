@@ -1,35 +1,38 @@
 package ru.stqa.ptf.addressbook.model;
 
 import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
 
-//@XStreamAlias("contact")
+@XStreamAlias("contact")
 @Entity
 @Table(name="addressbook")
 public class ContactData {
 
-//  @XStreamOmitField
+  @XStreamOmitField
   @Id
   @Column(name = "id")
   private int id = Integer.MAX_VALUE;
 
-//  @Expose
+  @Expose
   @Column(name = "firstname")
   private String name;
 
   @Column(name = "middlename")
   private String middle_name;
 
-//  @Expose
+  @Expose
   @Column(name = "lastname")
   private String last_name;
 
+  @Column(name = "nickname")
   private String nickname;
 
-//  @Expose
+  @Expose
   @Column(name = "address")
   @Type(type = "text")
   private String address;
@@ -38,12 +41,12 @@ public class ContactData {
   @Type(type = "text")
   private String mobile;
 
-//  @Expose
+  @Expose
   @Column(name = "home")
   @Type(type = "text")
   private String home;
 
-//  @Expose
+  @Expose
   @Column(name = "work")
   @Type(type = "text")
   private String work;
@@ -51,7 +54,7 @@ public class ContactData {
   @Type(type = "text")
   private String phone2;
 
-//  @Expose
+  @Expose
   @Column(name = "email")
   @Type(type = "text")
   private String email1;
@@ -73,7 +76,10 @@ public class ContactData {
   private String photo;
 
   public File getPhoto() {
-    return new File(photo);
+    if (photo != null) {
+      return new File(photo);
+    }
+    return new File("src/test/resources/test.png");
   }
 
   public ContactData withPhoto(File photo) {
