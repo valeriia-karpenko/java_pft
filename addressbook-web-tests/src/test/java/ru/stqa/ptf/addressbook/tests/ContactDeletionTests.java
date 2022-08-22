@@ -42,6 +42,7 @@ public class ContactDeletionTests extends TestBase {
     before.remove(deletedContact);
     assertThat(after, CoreMatchers.equalTo(before.without(deletedContact)));
     assertEquals(before,after);
+    verifyGroupInUI();
   }
 
 }
