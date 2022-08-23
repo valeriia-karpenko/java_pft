@@ -6,9 +6,13 @@ repositories {
 
 dependencies {
     implementation 'org.testng:testng:6.9.10'
+    implementation 'ch.qos.logback:logback-classic:1.2.11'
     implementation 'org.seleniumhq.selenium:selenium-java:3.14.0'
     implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5'
     implementation 'commons-net:commons-net:3.8.0'
+    implementation 'org.subethamail:subethasmtp:3.1.7'
+    implementation 'ru.lanwen.verbalregex:java-verbal-expressions:1.8'
 }
 
 test {
