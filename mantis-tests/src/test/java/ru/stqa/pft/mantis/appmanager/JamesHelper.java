@@ -76,7 +76,7 @@ public class JamesHelper {
     readUntil("Password:");
     write(password);
 
-    readUntil("Welcome "+login+". Help for a list of commands");
+    readUntil("Welcome "+login+". HELP for a list of commands");
   }
 
   private String readUntil(String pattern) {
@@ -135,8 +135,7 @@ public class JamesHelper {
     return folder;
   }
 
-  public List<MailMessage> waitForMail(String username, String password, long timeout) throws MessagingException,
-          InterruptedException {
+  public List<MailMessage> waitForMail(String username, String password, long timeout) throws MessagingException {
     long now = System.currentTimeMillis();
     while (System.currentTimeMillis() < now + timeout) {
       List<MailMessage> allMail = getAllMail(username, password);
