@@ -26,11 +26,7 @@ public class AddContactInGroupTest extends TestBase {
               .withLast_name("Vikodinov").withNickname("vik").withAddress("SPb").withMobilePhone("+79118594468")
               .withEmail1("rr@gmail.com"));
     }
-  }
 
-  @Test
-  public void testAddContactInGroup() {
-    Groups groups = app.db().groups();
     Contacts contacts = app.db().contacts();
     ContactData contact = getContactWithoutGroup(contacts);
     if (contact == null) {
@@ -39,6 +35,13 @@ public class AddContactInGroupTest extends TestBase {
               .withLast_name("Vikodinov").withNickname("vik").withAddress("SPb").withMobilePhone("+79118594468")
               .withEmail1("rr@gmail.com"));
     }
+  }
+
+  @Test
+  public void testAddContactInGroup() {
+    Groups groups = app.db().groups();
+    Contacts contacts = app.db().contacts();
+    ContactData contact = getContactWithoutGroup(contacts);
     GroupData group = groups.iterator().next();
     app.goTo().homePage();
     app.contact().addContactInGroup(contact, group);
