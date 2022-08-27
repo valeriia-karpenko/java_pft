@@ -6,6 +6,10 @@ repositories {
 
 dependencies {
     implementation 'org.testng:testng:6.9.10'
+    implementation("javax.xml:jaxb-api:2.1")
+    implementation("javax.xml.ws:jaxws-api:2.3.1")
+    implementation("com.sun.xml.ws:jaxws-ri:2.3.3")
+    implementation 'biz.futureware.mantis:mantis-axis-soap-client:1.2.19'
 }
 
 buildscript{
