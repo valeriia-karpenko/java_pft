@@ -1,10 +1,11 @@
-package ru.stqa.pft;
+package ru.stqa.pft.model;
 
 public class Issue {
 
   private int id;
   private String subject;
   private String description;
+  private String state_name;
 
   public int getId() {
     return id;
@@ -51,5 +52,13 @@ public class Issue {
     result = 31 * result + (subject != null ? subject.hashCode() : 0);
     result = 31 * result + (description != null ? description.hashCode() : 0);
     return result;
+  }
+
+  public String getStateName() {
+    return state_name;
+  }
+
+  public void withStateName(String state_name) {
+    this.state_name = state_name;
   }
 }
