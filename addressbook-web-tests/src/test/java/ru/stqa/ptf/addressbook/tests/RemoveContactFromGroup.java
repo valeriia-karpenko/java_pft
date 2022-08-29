@@ -34,9 +34,9 @@ public class RemoveContactFromGroup extends TestBase {
     Contacts before = app.db().contacts();
     ContactData contact = getContactInGroup(before, groups);
     app.goTo().homePage();
-    app.contact().removeContactFromGroup(contact);
+    GroupData group = contact.getGroups().iterator().next();
     Contacts after = app.db().contacts();
-    assertThat(after, equalTo(before.without(contact).withAdded(contact)));
+    assertThat(after, equalTo(before.without(contact).withAdded(contact.inGroup(group))));
   }
 
   private ContactData getContactInGroup(Contacts contacts, Groups groups) {

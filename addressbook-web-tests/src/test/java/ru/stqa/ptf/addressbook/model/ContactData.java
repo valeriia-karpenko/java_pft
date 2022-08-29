@@ -235,7 +235,8 @@ public class ContactData {
 
     if (id != that.id) return false;
     if (name != null ? !name.equals(that.name) : that.name != null) return false;
-    return last_name != null ? last_name.equals(that.last_name) : that.last_name == null;
+    if (last_name != null ? !last_name.equals(that.last_name) : that.last_name != null) return false;
+    return groups != null ? groups.equals(that.groups) : that.groups == null;
   }
 
   @Override
@@ -243,6 +244,7 @@ public class ContactData {
     int result = id;
     result = 31 * result + (name != null ? name.hashCode() : 0);
     result = 31 * result + (last_name != null ? last_name.hashCode() : 0);
+    result = 31 * result + (groups != null ? groups.hashCode() : 0);
     return result;
   }
 
@@ -252,6 +254,7 @@ public class ContactData {
             "id=" + id +
             ", name='" + name + '\'' +
             ", last_name='" + last_name + '\'' +
+            ", groups=" + groups +
             '}';
   }
 
