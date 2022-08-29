@@ -1,5 +1,7 @@
 package ru.stqa.pft.mantis.tests;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.lanwen.verbalregex.VerbalExpression;
 import ru.stqa.pft.mantis.model.MailMessage;
@@ -12,7 +14,7 @@ import static org.testng.Assert.assertTrue;
 
 public class RegistrationTests extends TestBase{
 
-//  @BeforeMethod
+  @BeforeMethod
   public void startBeforeMailServer() {
     app.mail().start();
   }
@@ -40,7 +42,7 @@ public class RegistrationTests extends TestBase{
   }
 
 
-//  @AfterMethod(alwaysRun = true)
+  @AfterMethod(alwaysRun = true)
   public void stopBeforeMailServer() {
     app.mail().stop();
   }

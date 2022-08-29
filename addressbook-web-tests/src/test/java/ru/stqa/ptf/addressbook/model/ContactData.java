@@ -254,7 +254,6 @@ public class ContactData {
             "id=" + id +
             ", name='" + name + '\'' +
             ", last_name='" + last_name + '\'' +
-            ", groups=" + groups +
             '}';
   }
 
