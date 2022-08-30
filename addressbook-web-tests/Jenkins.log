@@ -1,0 +1,19 @@
+Console Output
+Started by user Valeriia Karpenko
+Running as SYSTEM
+Building in workspace C:\Users\vkarpenko\.jenkins\workspace\addressbook-tests
+The recommended git tool is: NONE
+No credentials specified
+ > C:\Program Files\Git\bin\git.exe rev-parse --resolve-git-dir C:\Users\vkarpenko\.jenkins\workspace\addressbook-tests\.git # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url https://github.com/valeriia-karpenko/java_pft # timeout=10
+Fetching upstream changes from https://github.com/valeriia-karpenko/java_pft
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > git --version # 'git version 2.32.0.windows.1'
+ > C:\Program Files\Git\bin\git.exe fetch --tags --force --progress -- https://github.com/valeriia-karpenko/java_pft +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "origin/master^{commit}" # timeout=10
+ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
+Recording test results
+ERROR: Step ‘Publish JUnit test result report’ failed: No test report files were found. Configuration error?
+Finished: FAILURE
