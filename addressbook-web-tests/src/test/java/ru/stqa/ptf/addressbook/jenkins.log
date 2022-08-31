@@ -1,0 +1,62 @@
+Started by user Valeriia Karpenko
+Running as SYSTEM
+Building in workspace C:\Users\vkarpenko\.jenkins\workspace\addressbook-tests-windows
+The recommended git tool is: NONE
+No credentials specified
+ > C:\Program Files\Git\bin\git.exe rev-parse --resolve-git-dir C:\Users\vkarpenko\.jenkins\workspace\addressbook-tests-windows\.git # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url https://github.com/valeriia-karpenko/java_pft # timeout=10
+Fetching upstream changes from https://github.com/valeriia-karpenko/java_pft
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > git --version # 'git version 2.32.0.windows.1'
+ > C:\Program Files\Git\bin\git.exe fetch --tags --force --progress -- https://github.com/valeriia-karpenko/java_pft +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 9e48ca20bcd7a947106ab96c0361fafba9cc11cc (refs/remotes/origin/main)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 9e48ca20bcd7a947106ab96c0361fafba9cc11cc # timeout=10
+Commit message: "win10"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 9e48ca20bcd7a947106ab96c0361fafba9cc11cc # timeout=10
+[Gradle] - Launching build.
+[addressbook-web-tests] $ cmd.exe /C "C:\Utils\gradle-6.9\bin\gradle.bat -Pbrowser=chrome -Ptarget=remote -Pplatform=win10 clean testGroups && exit %%ERRORLEVEL%%"
+Starting a Gradle Daemon, 2 incompatible and 8 stopped Daemons could not be reused, use --status for details
+> Task :clean
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :compileTestJava
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :processTestResources
+> Task :testClasses
+> Task :testGroups
+
+ru.stqa.ptf.addressbook.tests.GroupModificationTests.setUp FAILED
+    org.openqa.selenium.SessionNotCreatedException at NativeConstructorAccessorImpl.java:-2
+
+ru.stqa.ptf.addressbook.tests.GroupModificationTests.tearDown FAILED
+    java.lang.NullPointerException at ApplicationManager.java:69
+
+3 tests completed, 2 failed, 1 skipped
+
+> Task :testGroups FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':testGroups'.
+> There were failing tests. See the report at: file:///C:/Users/vkarpenko/.jenkins/workspace/addressbook-tests-windows/addressbook-web-tests/build/reports/tests/testGroups/index.html
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 5m 16s
+4 actionable tasks: 4 executed
+Build step 'Invoke Gradle script' changed build result to FAILURE
+Build step 'Invoke Gradle script' marked build as failure
+Recording test results
+[Checks API] No suitable checks publisher found.
+Finished: FAILURE
